@@ -1,0 +1,93 @@
+<div class="main-container">
+  <header class="header-2">
+    <div class="branding">
+      <a class="nav-link">
+        <cds-icon shape="home" size="lg"></cds-icon>
+        <span class="title">Clarity</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a class="active nav-link nav-text">Homed</a>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <div cds-layout="m-b:xxl">
+        <cds-toggle>
+          <label>Activate workaround</label>
+          <input
+            type="checkbox"
+            [checked]="workaround"
+            (click)="workaround = !workaround"
+          />
+        </cds-toggle>
+      </div>
+      <div cds-layout="grid gap:lg cols:auto">
+        <div cds-layout="vertical gap:md">
+          <p cds-text="section">Form</p>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <cds-input>
+              <label>text input</label>
+              <input id="first-name" type="text" formControlName="name" />
+              <cds-control-message>message text</cds-control-message>
+            </cds-input>
+
+            <cds-form-group layout="horizontal-inline">
+              <cds-checkbox-group>
+                <label>Checkbox</label>
+                <cds-checkbox>
+                  <label>&nbsp;</label>
+                  <input
+                    type="checkbox"
+                    id="cb"
+                    formControlName="cb"
+                    (click)="onClick($event)"
+                  />
+                </cds-checkbox>
+              </cds-checkbox-group>
+              <cds-radio-group>
+                <label>Radios</label>
+                <cds-radio>
+                  <input
+                    type="radio"
+                    name="radios"
+                    formControlName="radios"
+                    value="1"
+                    (click)="onClick($event)"
+                  />
+                  <label>Option 1</label>
+                </cds-radio>
+                <cds-radio>
+                  <input
+                    type="radio"
+                    name="radios"
+                    formControlName="radios"
+                    value="2"
+                    (click)="onClick($event)"
+                  />
+                  <label>Option 2</label>
+                </cds-radio>
+                <cds-radio>
+                  <input
+                    type="radio"
+                    name="radios"
+                    formControlName="radios"
+                    value="3"
+                    (click)="onClick($event)"
+                  />
+                  <label>Option 3</label>
+                </cds-radio>
+              </cds-radio-group>
+            </cds-form-group>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div cds-layout="vertical gap:md align:stretch">
+          <p cds-text="section">Form data</p>
+          <pre>{{ form.value | json }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
